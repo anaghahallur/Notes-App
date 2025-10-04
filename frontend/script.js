@@ -36,16 +36,24 @@ function displayNotes(notesToDisplay) {
     `;
 
     // Toggle favorite instantly and update backend
-    const starBtn = card.querySelector(".star-btn");
-    starBtn.onclick = async () => {
-      note.favorite = !note.favorite; // update locally
-      starBtn.textContent = note.favorite ? "⭐" : "☆"; // toggle instantly
-      // Update backend
+    // Toggle favorite
+    card.querySelector(".star-btn").onclick = async () => {
+      // Find the current note object by id
+      const currentNote = notes.find(n => n.id === note.id);
+
+      if (!currentNote) return;
+
       await fetch(`/api/notes/${note.id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ favorite: note.favorite })
+        body: JSON.stringify({
+          title: currentNote.title,      // preserve exact current title
+          text: currentNote.text,        // preserve exact current text
+          favorite: !currentNote.favorite // toggle favorite
+        })
       });
+
+      fetchNotes(); // refresh display
     };
 
     // Edit note

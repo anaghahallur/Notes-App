@@ -1,19 +1,26 @@
 [
   {
-    "id": 1759589326019,
-    "createdAt": "10/4/2025, 8:18:46 PM",
-    "updatedAt": "10/4/2025, 8:25:17 PM"
-  },
-  {
-    "id": 1759589377058,
-    "createdAt": "10/4/2025, 8:19:37 PM",
-    "updatedAt": "10/4/2025, 8:25:12 PM"
-  },
-  {
     "id": 1759589407062,
     "title": "Amannn",
     "text": "He is the person I never want to lose, he is bestest friend of mine",
     "createdAt": "10/4/2025, 8:20:07 PM",
-    "updatedAt": "10/4/2025, 8:20:19 PM"
+    "updatedAt": "10/4/2025, 8:37:10 PM",
+    "favorite": false
+  },
+  {
+    "id": 1759590395033,
+    "title": "Anuuu",
+    "text": "Good girl, kind hearted, loving whole heartedly",
+    "createdAt": "10/4/2025, 8:36:35 PM",
+    "favorite": true,
+    "updatedAt": "10/4/2025, 8:37:17 PM"
+  },
+  {
+    "id": 1759590416340,
+    "title": "Sathuu",
+    "text": "Best friend, guide, never lose",
+    "createdAt": "10/4/2025, 8:36:56 PM",
+    "favorite": false,
+    "updatedAt": "10/4/2025, 8:37:06 PM"
   }
 ]

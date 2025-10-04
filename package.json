@@ -1,0 +1,14 @@
+{
+  "name": "notes-app",
+  "version": "1.0.0",
+  "description": "A modern Notes app with Node.js, Express, and Vanilla JS",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "author": "Anagha",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.0"
+  }
+}

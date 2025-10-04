@@ -4,11 +4,11 @@ const fs = require("fs");
 const path = require("path");
 
 const app = express();
-const PORT = process.env.PORT || 3000; // Use Render's PORT or default 3000
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "frontend"))); // Serve frontend folder
+app.use(express.static(path.join(__dirname, "frontend")));
 
 // Path to store notes
 const notesFile = path.join(__dirname, "notes.json");
@@ -17,7 +17,7 @@ const notesFile = path.join(__dirname, "notes.json");
 function readNotes() {
   try {
     if (!fs.existsSync(notesFile)) {
-      fs.writeFileSync(notesFile, "[]"); // Create file if it doesn't exist
+      fs.writeFileSync(notesFile, "[]");
     }
     const data = fs.readFileSync(notesFile, "utf-8");
     return JSON.parse(data);
@@ -36,7 +36,6 @@ function writeNotes(notes) {
 }
 
 // API Routes
-
 app.get("/api/notes", (req, res) => {
   const notes = readNotes();
   res.json(notes);
@@ -47,20 +46,37 @@ app.post("/api/notes", (req, res) => {
   if (!title || !text) {
     return res.status(400).json({ message: "Both title and text are required" });
   }
+
   const notes = readNotes();
-  const newNote = { id: Date.now(), title, text, createdAt: new Date().toLocaleString() };
+  const newNote = {
+    id: Date.now(),
+    title,
+    text,
+    createdAt: new Date().toLocaleString(),
+    favorite: false // default
+  };
   notes.push(newNote);
   writeNotes(notes);
   res.status(201).json(newNote);
 });
 
+// Updated PUT route to preserve favorite if not provided
 app.put("/api/notes/:id", (req, res) => {
   const id = parseInt(req.params.id);
-  const { title, text } = req.body;
+  const { title, text, favorite } = req.body;
+
   const notes = readNotes();
   const index = notes.findIndex(note => note.id === id);
   if (index === -1) return res.status(404).json({ message: "Note not found" });
-  notes[index] = { ...notes[index], title, text, updatedAt: new Date().toLocaleString() };
+
+  notes[index] = {
+    ...notes[index],
+    title: title ?? notes[index].title,
+    text: text ?? notes[index].text,
+    updatedAt: new Date().toLocaleString(),
+    favorite: favorite !== undefined ? favorite : notes[index].favorite
+  };
+
   writeNotes(notes);
   res.json(notes[index]);
 });
@@ -70,12 +86,13 @@ app.delete("/api/notes/:id", (req, res) => {
   let notes = readNotes();
   const noteExists = notes.some(note => note.id === id);
   if (!noteExists) return res.status(404).json({ message: "Note not found" });
+
   notes = notes.filter(note => note.id !== id);
   writeNotes(notes);
   res.json({ message: "Note deleted" });
 });
 
-// Fallback route to serve frontend for all other paths
+// Fallback route for frontend
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "frontend", "index.html"));
 });

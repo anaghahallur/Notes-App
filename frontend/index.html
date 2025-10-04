@@ -2,22 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Notes Keeper</title>
+  <title>📝 Notes Keeper</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>📝 Notes Keeper</h1>
+  <!-- Header -->
+  <header>
+    <h1>📝 Notes Keeper</h1>
+    <button id="darkModeToggle">🌙 Dark Mode</button>
+  </header>
 
+  <!-- Filter: Favorites -->
+  <div class="controls">
+    <input type="text" id="searchInput" placeholder="🔍 Search notes..." />
+    <select id="sortSelect">
+      <option value="newest">Newest First</option>
+      <option value="oldest">Oldest First</option>
+    </select>
+    <select id="filterSelect">
+      <option value="all">All Notes</option>
+      <option value="favorites">Favorites Only</option>
+    </select>
+  </div>
+
+  <!-- Input Area -->
   <div class="input-area">
     <input type="text" id="titleInput" placeholder="Title..." />
-    <input type="text" id="noteInput" placeholder="Write your note..." />
+    <textarea id="noteInput" placeholder="Write your note..."></textarea>
     <button id="addBtn">Add Note</button>
   </div>
 
-  <input type="text" id="searchInput" placeholder="🔍 Search notes..." />
-
+  <!-- Notes Display -->
   <div id="notesList"></div>
 
+  <!-- JS Script -->
   <script src="script.js"></script>
 </body>
 </html>

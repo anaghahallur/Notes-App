@@ -1,14 +1,14 @@
 {
   "name": "notes-app",
   "version": "1.0.0",
-  "description": "A modern Notes app with Node.js and Express",
+  "description": "A Notes App with Node.js and Express",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
-  "author": "Anagha",
-  "license": "ISC",
   "dependencies": {
     "express": "^4.19.0"
-  }
+  },
+  "author": "Anagha",
+  "license": "ISC"
 }

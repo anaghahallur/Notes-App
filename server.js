@@ -4,11 +4,11 @@ const fs = require("fs");
 const path = require("path");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000; // Use Render's PORT or default 3000
 
 // Middleware
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "../frontend"))); // Serves frontend files
+app.use(express.static(path.join(__dirname, "frontend"))); // Serve frontend folder
 
 // Path to store notes
 const notesFile = path.join(__dirname, "notes.json");
@@ -35,70 +35,50 @@ function writeNotes(notes) {
   }
 }
 
-// Routes
+// API Routes
 
-// GET all notes
 app.get("/api/notes", (req, res) => {
   const notes = readNotes();
   res.json(notes);
 });
 
-// POST a new note
 app.post("/api/notes", (req, res) => {
   const { title, text } = req.body;
   if (!title || !text) {
     return res.status(400).json({ message: "Both title and text are required" });
   }
-
   const notes = readNotes();
-  const newNote = {
-    id: Date.now(),
-    title,
-    text,
-    createdAt: new Date().toLocaleString()
-  };
+  const newNote = { id: Date.now(), title, text, createdAt: new Date().toLocaleString() };
   notes.push(newNote);
   writeNotes(notes);
-
   res.status(201).json(newNote);
 });
 
-// PUT (Edit note)
 app.put("/api/notes/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const { title, text } = req.body;
-
   const notes = readNotes();
   const index = notes.findIndex(note => note.id === id);
-  if (index === -1) {
-    return res.status(404).json({ message: "Note not found" });
-  }
-
-  notes[index] = {
-    ...notes[index],
-    title,
-    text,
-    updatedAt: new Date().toLocaleString()
-  };
+  if (index === -1) return res.status(404).json({ message: "Note not found" });
+  notes[index] = { ...notes[index], title, text, updatedAt: new Date().toLocaleString() };
   writeNotes(notes);
   res.json(notes[index]);
 });
 
-// DELETE a note
 app.delete("/api/notes/:id", (req, res) => {
   const id = parseInt(req.params.id);
   let notes = readNotes();
   const noteExists = notes.some(note => note.id === id);
-
-  if (!noteExists) {
-    return res.status(404).json({ message: "Note not found" });
-  }
-
+  if (!noteExists) return res.status(404).json({ message: "Note not found" });
   notes = notes.filter(note => note.id !== id);
   writeNotes(notes);
-
   res.json({ message: "Note deleted" });
 });
 
+// Fallback route to serve frontend for all other paths
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend", "index.html"));
+});
+
 // Start server
-app.listen(PORT, () => console.log(`✅ Server running at http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));

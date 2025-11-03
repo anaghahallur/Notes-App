@@ -1,14 +1,17 @@
 {
   "name": "notes-app",
   "version": "1.0.0",
-  "description": "A Notes App with Node.js and Express",
-  "main": "server.js",
+  "type": "module",
   "scripts": {
-    "start": "node server.js"
+    "start": "node backend/server.js",
+    "test-db": "node backend/testConnection.js"
   },
   "dependencies": {
-    "express": "^4.19.0"
-  },
-  "author": "Anagha",
-  "license": "ISC"
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.16.3"
+  }
 }

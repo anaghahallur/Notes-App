@@ -1,0 +1,126 @@
+/* ============================
+   GENERAL PAGE STYLES
+============================ */
+body {
+    font-family: "Poppins", sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
+  
+  /* ============================
+     HEADER
+  ============================ */
+  header {
+    background: #4a90e2;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+  
+  /* ============================
+     MAIN CONTAINER
+  ============================ */
+  .container {
+    width: 90%;
+    max-width: 700px;
+    margin: 2rem auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+  }
+  
+  /* ============================
+     TASK SECTION
+  ============================ */
+  .task-section {
+    margin-bottom: 2rem;
+  }
+  
+  .task-section h2 {
+    margin-bottom: 1rem;
+    color: #4a90e2;
+  }
+  
+  /* ============================
+     TASK LIST
+  ============================ */
+  ul#task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  ul#task-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    padding: 0.9rem 1rem;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+  }
+  
+  ul#task-list li:hover {
+    background: #f1f7ff;
+    transform: translateY(-2px);
+  }
+  
+  /* ============================
+     ADD TASK SECTION
+  ============================ */
+  .add-task {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 1.5rem;
+  }
+  
+  .add-task input {
+    flex: 1;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    outline: none;
+  }
+  
+  .add-task button {
+    background: #4a90e2;
+    border: none;
+    color: white;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1rem;
+  }
+  
+  .add-task button:hover {
+    background: #357bd8;
+  }
+  
+  /* ============================
+     LOGOUT BUTTON
+  ============================ */
+  #logout-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.3rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+  }
+  
+  #logout-btn:hover {
+    background: #c0392b;
+  }

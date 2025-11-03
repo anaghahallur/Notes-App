@@ -1,190 +1,103 @@
-/* ----- General Styles ----- */
 body {
-  font-family: 'Poppins', sans-serif;
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 0 15px;
-  text-align: center;
-  background: #f9fafc;
-  color: #333;
-  transition: background 0.3s, color 0.3s;
-}
-
-h1 {
-  margin-bottom: 20px;
-}
-
-/* ----- Header ----- */
-header {
+  font-family: "Poppins", sans-serif;
+  background: #f6f7fb;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-}
-
-header button {
-  padding: 6px 12px;
-  border-radius: 8px;
-  border: none;
-  background: #4f46e5;
-  color: #fff;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-header button:hover {
-  background: #3730a3;
-}
-
-/* ----- Input Area ----- */
-.input-area {
-  display: flex;
-  gap: 10px;
   justify-content: center;
-  margin-bottom: 15px;
-  flex-wrap: wrap;
+  height: 100vh;
 }
 
-.input-area input,
-.input-area textarea {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  width: 200px;
-  font-size: 1rem;
-}
-
-.input-area textarea {
-  min-height: 60px;
-  resize: vertical;
-}
-
-.input-area button {
-  padding: 10px 15px;
-  background-color: #4f46e5;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.input-area button:hover {
-  background-color: #3730a3;
-}
-
-/* ----- Controls: Search + Sort + Filter ----- */
-.controls {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-}
-
-.controls input,
-.controls select {
-  padding: 8px 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 0.95rem;
-}
-
-/* ----- Notes Grid ----- */
-#notesList {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 15px;
-}
-
-/* ----- Note Card ----- */
-.note-card {
+.container {
   background: white;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  text-align: left;
-  position: relative;
-  transition: transform 0.2s, box-shadow 0.2s;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  width: 300px;
+  text-align: center;
 }
 
-.note-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+input {
+  width: 90%;
+  margin: 0.5rem 0;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-.note-card h3 {
-  margin-top: 0;
-  font-size: 1.2rem;
-}
-
-.note-card p {
-  font-size: 0.95rem;
-  margin-bottom: 10px;
-  white-space: pre-wrap;
-}
-
-.note-card small {
-  color: #777;
-  font-size: 0.8rem;
-}
-
-/* ----- Note Actions ----- */
-.note-actions {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-}
-
-.note-actions button {
-  margin-left: 5px;
-  background: none;
+button {
+  width: 95%;
+  padding: 0.7rem;
   border: none;
-  cursor: pointer;
-  color: #555;
+  background: #4a90e2;
+  color: white;
   font-weight: bold;
-  transition: color 0.2s;
-}
-
-.note-actions button:hover {
-  color: #4f46e5;
-}
-
-/* ----- Star Button ----- */
-.star-btn {
-  font-size: 1.2rem;
-  background: none;
-  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  color: #facc15; /* gold for favorite */
 }
 
-.star-btn:hover {
-  transform: scale(1.2);
+button:hover {
+  background: #357ab8;
 }
 
-/* ----- Dark Mode ----- */
-.dark-mode {
-  background-color: #121212;
-  color: #f0f0f0;
+.dashboard-container {
+  max-width: 400px;
+  margin: 100px auto;
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: center;
 }
 
-.dark-mode .note-card {
-  background-color: #1e1e1e;
-  color: #f0f0f0;
+.task-section {
+  margin: 20px 0;
 }
 
-.dark-mode .note-actions button {
-  color: #bbb;
+#task-list {
+  list-style: none;
+  padding: 0;
 }
 
-.dark-mode .note-actions button:hover {
-  color: #4f46e5;
+#task-list li {
+  background: white;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.05);
 }
 
-.dark-mode input,
-.dark-mode textarea,
-.dark-mode select {
-  background-color: #1e1e1e;
-  color: #f0f0f0;
-  border: 
+.add-task {
+  margin-top: 20px;
+}
+
+#new-task {
+  padding: 8px;
+  width: 70%;
+}
+
+#add-btn {
+  padding: 8px 10px;
+  margin-left: 5px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+#add-btn:hover {
+  background-color: #0056b3;
+}
+
+#logout-btn {
+  margin-top: 20px;
+  background: #dc3545;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#logout-btn:hover {
+  background: #c82333;
+}

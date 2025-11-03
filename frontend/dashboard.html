@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+    <header>
+      Welcome, <span id="username">User</span> 👋
+    </header>
+
+    <main class="container">
+      <section class="task-section">
+        <h2>Your Tasks</h2>
+        <ul id="task-list"></ul>
+
+        <div class="add-task">
+          <input type="text" id="new-task" placeholder="Enter a new task..." />
+          <button id="add-btn">Add Task</button>
+        </div>
+      </section>
+
+      <button id="logout-btn">Logout</button>
+    </main>
+
+    <script src="dashboard.js"></script>
+  </body>
+</html>

@@ -16,7 +16,7 @@ app.use(
     origin: [
       "http://127.0.0.1:5500",   // for local testing
       "http://localhost:5500",   // for local testing
-      "https://your-frontend-url.netlify.app", // replace with your deployed frontend later
+      "https://delightful-mochi-26985a.netlify.app", // replace with your deployed frontend later
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],

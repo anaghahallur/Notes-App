@@ -1,4 +1,5 @@
-const API_URL = "https://notes-app-1-gw0y.onrender.com";
+const API_URL = "https://notes-app-backend-wsl7.onrender.com
+";
 
 document.addEventListener("DOMContentLoaded", async () => {
   const username = localStorage.getItem("username") || "User";

@@ -1,5 +1,5 @@
 // 🔗 Backend base URL (Render)
-const API_URL = "https://notes-app-1-gw0y.onrender.com"; 
+const API_URL = "https://notes-app-backend-wsl7.onrender.com"; 
 
 const signupForm = document.getElementById("signupForm");
 const loginForm = document.getElementById("loginForm");

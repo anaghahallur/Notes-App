@@ -11,12 +11,13 @@ const app = express();
 app.use(express.json());
 
 // ✅ Enable CORS for local + deployed frontend
+
 app.use(
   cors({
     origin: [
-      "http://127.0.0.1:5500",   // for local testing
-      "http://localhost:5500",   // for local testing
-      "https://delightful-mochi-26985a.netlify.app", // replace with your deployed frontend later
+      "http://127.0.0.1:8080",            // ✅ local frontend (browser)
+      "http://localhost:8080",            // ✅ local fallback
+      "https://preeminent-buttercream-462689.netlify.app" // ✅ your Netlify site
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],

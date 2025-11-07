@@ -10,19 +10,24 @@ const app = express();
 
 app.use(express.json());
 
-// ✅ Enable CORS for local + deployed frontend
 
 app.use(
   cors({
     origin: [
-      "http://127.0.0.1:8080",            // ✅ local frontend (browser)
-      "http://localhost:8080",            // ✅ local fallback
-      "https://preeminent-buttercream-462689.netlify.app" // ✅ your Netlify site
+      "http://127.0.0.1:8080",
+      "http://localhost:8080",
+      "https://preeminent-buttercream-462689.netlify.app",
+      "https://delightful-mochi-26985a.netlify.app"
     ],
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
   })
 );
+
+app.options("*", cors());
 
 // ✅ Routes
 app.use("/auth", authRoutes);
